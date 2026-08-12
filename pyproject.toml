@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nimzo"
+version = "0.1.0"
+description = "A locally trained CPU-optimized chess engine using ResNet + MCTS"
+authors = [{ name = "nimzo team" }]
+dependencies = [
+    "torch",
+    "python-chess",
+    "numpy",
+    "pyyaml",
+    "tqdm",
+    "pytest",
+    "zstandard",
+    "customtkinter",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-benchmark"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

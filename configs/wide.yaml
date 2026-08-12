@@ -1,0 +1,7 @@
+name: "wide"
+num_blocks: 8
+channels: 96
+in_channels: 19
+policy_channels: 73
+value_channels: 8
+num_actions: 4672

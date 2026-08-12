@@ -1,0 +1,7 @@
+name: "base"
+num_blocks: 6
+channels: 64
+in_channels: 19
+policy_channels: 73
+value_channels: 8
+num_actions: 4672

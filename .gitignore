@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtualenv
+.venv/
+
+# Large generated data (regenerate via scripts/download_data.sh + nimzo.data.pack_*)
+data/
+
+# Training checkpoints and logs (regenerate via scripts/train.sh + notebooks/)
+runs/
+
+# Transient Kaggle upload packages (regenerate as needed; notebooks/ has the
+# permanent, reusable notebook copies)
+kaggle_upload/
+
+# Local tool config
+.claude/
+
+# OS
+.DS_Store
