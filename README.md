@@ -6,6 +6,12 @@ a terminal client, and a desktop GUI. No existing chess engine code, no pretrain
 weights — the policy/value network is distilled from scratch on Lichess puzzle data
 and Stockfish evaluations.
 
+Currently, the engine plays at roughly an **800–1000 Elo** level (equivalent to an intermediate beginner/casual human player), demonstrating basic tactical awareness, piece development, and endgame mechanics.
+
+<p align="center">
+  <img src="results/nimzo_gui_play.gif" alt="Nimzo Desktop GUI Gameplay" width="800" />
+</p>
+
 ## Training
 
 The current model is trained on a mix of Lichess puzzle positions (tactical, one-hot
@@ -17,12 +23,11 @@ The two sources are mixed via a fixed sampling ratio rather than a plain concate
 (`RatioSampler` in `nimzo/data/shards.py`), since naively concatenating lets the
 larger source drown out the smaller one regardless of how the split was intended.
 
-Training uses a cosine LR schedule with warmup and runs on a free Kaggle T4 GPU (see
+Training uses a cosine LR schedule with warmup. It initial version runed on my personal laptop (8GB RAM and no GPU) it took more than 6 hours to finish but this version runs on a free Kaggle T4 GPU to save time (see
 `notebooks/train.ipynb`) — CPU-only local training is also supported
 (`scripts/train.sh`) for smaller runs.
 
-Training is ongoing — models are being refined further, so specific benchmark numbers
-aren't published here yet. Match records from evaluation runs are in `results/*.pgn`.
+Training is ongoing — current model checkpoints play around 800–1000 Elo and are being refined further with larger datasets and deeper MCTS search. Match records from evaluation runs are in `results/*.pgn`.
 
 ## Quick Start
 

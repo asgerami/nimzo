@@ -53,11 +53,19 @@ PIECE_VALUES = {chess.PAWN: 1, chess.KNIGHT: 3, chess.BISHOP: 3, chess.ROOK: 5, 
 FILES = "abcdefgh"
 
 class NimzoGUI:
-    def __init__(self, root: ctk.CTk, config_path: Optional[str] = None, weights_path: Optional[str] = None):
+    def __init__(
+        self,
+        root: ctk.CTk,
+        config_path: Optional[str] = None,
+        weights_path: Optional[str] = None,
+        canvas_size: int = 560,
+    ):
         self.root = root
         self.root.title("Nimzo — Interactive Chess AI")
-        self.root.geometry("1240x800")
-        self.root.minsize(1040, 700)
+        self.canvas_size = canvas_size
+        self.square_size = self.canvas_size // 8
+        self.root.geometry(f"{self.canvas_size + 380}x{self.canvas_size + 160}")
+        self.root.minsize(880, 640)
         self.root.configure(fg_color=COL_BASE)
 
         if not config_path or not weights_path:
@@ -92,8 +100,7 @@ class NimzoGUI:
         board_card = ctk.CTkFrame(main_container, fg_color=COL_MANTLE, corner_radius=16)
         board_card.pack(side=tk.LEFT, padx=(0, 20), fill=tk.Y)
 
-        self.canvas_size = 680
-        self.square_size = self.canvas_size // 8
+
 
         self.canvas = tk.Canvas(
             board_card,
@@ -236,7 +243,8 @@ class NimzoGUI:
 
                     cx = (x1 + x2) / 2
                     cy = (y1 + y2) / 2
-                    font = ("Dejavu Sans", 42, "bold")
+                    font_size = int(self.square_size * 0.6)
+                    font = ("Dejavu Sans", font_size, "bold")
 
                     for dx, dy in ((-1, -1), (1, -1), (-1, 1), (1, 1), (0, -1), (0, 1), (-1, 0), (1, 0)):
                         self.canvas.create_text(cx + dx, cy + dy, text=symbol, font=font, fill=outline_color)
