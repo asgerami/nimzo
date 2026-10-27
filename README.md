@@ -34,7 +34,7 @@ The two sources are mixed via a fixed sampling ratio rather than a plain concate
 (`RatioSampler` in `nimzo/data/shards.py`), since naively concatenating lets the
 larger source drown out the smaller one regardless of how the split was intended.
 
-Training uses a cosine LR schedule with warmup. It initial version runed on my personal laptop (8GB RAM and no GPU) it took more than 6 hours to finish but this version runs on a free Kaggle T4 GPU to save time (see
+Training uses a cosine LR schedule with warmup. The initial version ran on my personal laptop (8GB RAM, no GPU) and took more than 6 hours to finish; this version runs on a free Kaggle T4 GPU to save time (see
 `notebooks/train.ipynb`) — CPU-only local training is also supported
 (`scripts/train.sh`) for smaller runs.
 
