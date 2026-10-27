@@ -12,6 +12,17 @@ Currently, the engine plays at roughly an **800–1000 Elo** level (equivalent t
   <img src="results/nimzo_gui_play.gif" alt="Nimzo Desktop GUI Gameplay" width="800" />
 </p>
 
+## Contents
+
+- [Training](#training)
+- [Quick Start](#quick-start)
+  - [Environment & Tests](#1-environment--tests)
+  - [Play: Terminal](#2-play--terminal)
+  - [Play: GUI](#3-play--gui)
+  - [Data Pipeline](#4-data-pipeline)
+  - [Training (CPU)](#5-training-resource-safe-cpu)
+  - [Elo Measurement](#6-elo-measurement)
+
 ## Training
 
 The current model is trained on a mix of Lichess puzzle positions (tactical, one-hot
